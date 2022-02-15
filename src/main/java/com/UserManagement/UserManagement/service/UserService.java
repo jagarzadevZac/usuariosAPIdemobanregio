@@ -26,8 +26,8 @@ public class UserService {
         return userRepository.findById(id);
     }
 
-    public Optional<User> getByfirstName(String firstName){
-        return userRepository.findByFirstName(firstName);
+    public Optional<User> getByNombre(String nombre){
+        return userRepository.findByNombre(nombre);
     }
 
 
@@ -44,8 +44,8 @@ public class UserService {
         return userRepository.existsById(id);
     }
 
-    public boolean existsByfirstName(String firstName){
-        return userRepository.existsByfirstName(firstName);
+    public boolean existsByNombre(String nombre){
+        return userRepository.existsByNombre(nombre);
     }
     
 }

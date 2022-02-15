@@ -11,46 +11,75 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String firstName;
-    private String lastName;
-    private String email;
+    private String brm;
+    private String puesto;
+    private String nombre;
+    private String foto;
 
     public User(){
         
     }
- 
-    public User(String firstName, String lastName, String email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
+
+    
+    public User(String brm, String puesto, String nombre, String foto) {
+        this.brm = brm;
+        this.puesto = puesto;
+        this.nombre = nombre;
+        this.foto = foto;
     }
+
+
+    public String getFoto() {
+        return foto;
+    }
+
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
+
 
     public int getId() {
         return id;
     }
+
+
     public void setId(int id) {
         this.id = id;
     }
-    public String getFirstName() {
-        return firstName;
-    }
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-    public String getLastName() {
-        return lastName;
-    }
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-    public String getEmail() {
-        return email;
-    }
-    public void setEmail(String email) {
-        this.email = email;
+
+
+    public String getBrm() {
+        return brm;
     }
 
 
+    public void setBrm(String brm) {
+        this.brm = brm;
+    }
+
+
+    public String getPuesto() {
+        return puesto;
+    }
+
+
+    public void setPuesto(String puesto) {
+        this.puesto = puesto;
+    }
+
+
+    public String getNombre() {
+        return nombre;
+    }
+
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+ 
+    
 
     
 }

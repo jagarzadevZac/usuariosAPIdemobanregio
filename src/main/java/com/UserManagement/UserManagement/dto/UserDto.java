@@ -7,32 +7,49 @@ import org.springframework.lang.NonNull;
 public class UserDto {
 
     @NonNull
-    private String firstName;
+    private String brm;
+
     @NonNull
-    private String lastName;
+    private String puesto;
+
     @NonNull
-    private String email;
+    private String nombre;
+
+    @NonNull
+    private String foto;
+
+    public String getBrm() {
+        return brm;
+    }
+
+    public void setBrm(String brm) {
+        this.brm = brm;
+    }
+
+    public String getPuesto() {
+        return puesto;
+    }
+
+    public void setPuesto(String puesto) {
+        this.puesto = puesto;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
 
     
-    public String getFirstName() {
-        return firstName;
-    }
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-    public String getLastName() {
-        return lastName;
-    }
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-    public String getEmail() {
-        return email;
-    }
-    public void setEmail(String email) {
-        this.email = email;
-    }
-    
-
     
 }

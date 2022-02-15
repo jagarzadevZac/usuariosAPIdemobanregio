@@ -50,16 +50,16 @@ public class UserController {
 
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody UserDto userDto, String string){
-        if(StringUtils.isBlank(userDto.getFirstName()))
-            return new ResponseEntity<>(string, HttpStatus.BAD_REQUEST);
+        if(StringUtils.isBlank(userDto.getNombre()))
+            return new ResponseEntity<>(new Mensaje("nombre es requerido"), HttpStatus.BAD_REQUEST);
 
-        if(StringUtils.isBlank(userDto.getLastName()))
-            return new ResponseEntity<>(new Mensaje("last name is requiered"), HttpStatus.BAD_REQUEST);
+        if(StringUtils.isBlank(userDto.getBrm()))
+            return new ResponseEntity<>(new Mensaje("brm es requerido"), HttpStatus.BAD_REQUEST);
 
-        if(StringUtils.isBlank(userDto.getEmail()))
-            return new ResponseEntity<>(new Mensaje("email is requiered"), HttpStatus.BAD_REQUEST);
+        if(StringUtils.isBlank(userDto.getPuesto()))
+            return new ResponseEntity<>(new Mensaje("puesto es requerido"), HttpStatus.BAD_REQUEST);
 
-        User user = new User(userDto.getFirstName(), userDto.getLastName(), userDto.getEmail());
+        User user = new User(userDto.getBrm(), userDto.getFoto(), userDto.getNombre(),userDto.getPuesto());
         userService.save(user);
 
         return new ResponseEntity<>(new Mensaje("user create ok"), HttpStatus.OK);
@@ -68,21 +68,22 @@ public class UserController {
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody UserDto userDto){
         if(!userService.existsById(id))
-            return new ResponseEntity<>(new Mensaje("no exist"), HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(new Mensaje("no existe el usuario"), HttpStatus.NOT_FOUND);
 
-        if(StringUtils.isBlank(userDto.getFirstName()))
-            return new ResponseEntity<>(new Mensaje("first name is requiered"), HttpStatus.BAD_REQUEST);
+        if(StringUtils.isBlank(userDto.getNombre()))
+            return new ResponseEntity<>(new Mensaje("nombre es requerido"), HttpStatus.BAD_REQUEST);
 
-        if(StringUtils.isBlank(userDto.getLastName()))
-            return new ResponseEntity<>(new Mensaje("last name is requiered"), HttpStatus.BAD_REQUEST);
+        if(StringUtils.isBlank(userDto.getBrm()))
+            return new ResponseEntity<>(new Mensaje("brm es requerido"), HttpStatus.BAD_REQUEST);
 
-        if(StringUtils.isBlank(userDto.getEmail()))
-            return new ResponseEntity<>(new Mensaje("email is requiered"), HttpStatus.BAD_REQUEST);
+        if(StringUtils.isBlank(userDto.getPuesto()))
+            return new ResponseEntity<>(new Mensaje("puesto es requerido"), HttpStatus.BAD_REQUEST);
         
         User user = userService.getOne(id).get();
-        user.setFirstName(userDto.getFirstName());
-        user.setLastName(userDto.getLastName());
-        user.setEmail(userDto.getEmail());
+        user.setBrm(userDto.getBrm());
+        user.setFoto(userDto.getFoto());
+        user.setNombre(userDto.getNombre());
+        user.setPuesto(userDto.getPuesto());
         userService.save(user);
 
         return new ResponseEntity<>(new Mensaje("user update ok"), HttpStatus.OK);
